@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.6</TargetFrameworks>
+    <Title>Cs-Ts Code Generator </Title>
+    <Authors>Diogo 'Nitro' Fernandes </Authors>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>C# to Typescript code generator. Currently only supporting DTOs tagged with [CoderEnabled]</Description>
+    <PackageProjectUrl>https://github.com/difernandesti/CsTsCodegen</PackageProjectUrl>
+    <VersionPrefix>0.9.1</VersionPrefix>
+    <OutputType>Library</OutputType>
+    <Version>0.9.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="build\*" PackagePath="build\" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Framework" Version="15.1.1012" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.1.1012" />
+    <!-- Marks all packages as 'local only' so they don't end up in the nuspec. -->
+    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>
